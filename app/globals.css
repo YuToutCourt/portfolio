@@ -24,3 +24,36 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Custom animations */
+@keyframes shine {
+  0% { 
+    background-position: -200% center; 
+  }
+  100% { 
+    background-position: 200% center; 
+  }
+}
+
+/* Utility classes */
+.shine-effect {
+  background: linear-gradient(90deg, 
+    rgb(202, 138, 4) 0%, 
+    rgb(250, 204, 21) 25%, 
+    rgb(255, 255, 255) 50%, 
+    rgb(250, 204, 21) 75%, 
+    rgb(202, 138, 4) 100%);
+  background-size: 200% 100%;
+  animation: shine 3s infinite;
+}
+
+.silver-effect {
+  background: linear-gradient(90deg, 
+    rgb(107, 114, 128) 0%, 
+    rgb(156, 163, 175) 25%, 
+    rgb(255, 255, 255) 50%, 
+    rgb(156, 163, 175) 75%, 
+    rgb(107, 114, 128) 100%);
+  background-size: 200% 100%;
+  animation: shine 3s infinite;
+}
