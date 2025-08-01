@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "YùToutCourt - Portfolio Cybersécurité",
-  description: "Portfolio de YùToutCourt - Spécialiste en cybersécurité, DevSecOps, Pentesting et Red Team. Découvrez mon parcours et mes compétences.",
+  title: "YùToutCourt - Portfolio",
+  description: "Portfolio de YùToutCourt - Jeune étudiant, spécialisé en cybersécurité, DevSecOps, Pentesting et Red Team. Découvrez mon parcours et mes compétences.",
   keywords: ["cybersécurité", "DevSecOps", "pentesting", "red team", "sécurité informatique", "bug bounty"],
   authors: [{ name: "YùToutCourt" }],
   robots: {
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "YùToutCourt - Portfolio Cybersécurité",
-    description: "Spécialiste en cybersécurité, DevSecOps, Pentesting et Red Team",
+    title: "YùToutCourt - Portfolio",
+    description: "Jeune étudiant, spécialisé en cybersécurité, DevSecOps, Pentesting et Red Team",
     type: "website",
     locale: "fr_FR",
   },
   twitter: {
     card: "summary_large_image",
-    title: "YùToutCourt - Portfolio Cybersécurité",
-    description: "Spécialiste en cybersécurité, DevSecOps, Pentesting et Red Team",
+    title: "YùToutCourt - Portfolio",
+    description: "Jeune étudiant, spécialisé cybersécurité, DevSecOps, Pentesting et Red Team",
   }
 };
 

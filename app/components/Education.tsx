@@ -19,7 +19,7 @@ const Education = () => {
       period: t('dates.edu.master'),
       description: t('education.master.description'),
       specialNote: t('education.master.specialnote'),
-      icon: "/esgi.png",
+      icon: "/ESGI.png",
       highlight: "Master",
       special: true,
       color: "from-white to-white"
@@ -32,7 +32,7 @@ const Education = () => {
       period: t('dates.edu.bachelor'),
       description: t('education.bachelor.description'),
       specialNote: t('education.bachelor.specialnote'),
-      icon: "/esgi.png",
+      icon: "/ESGI.png",
       highlight: "Bachelor",
       special: true,
       color: "from-white to-white"
