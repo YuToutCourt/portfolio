@@ -3,12 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-inter: var(--font-inter);
+  --font-poppins: var(--font-poppins);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -22,7 +24,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), var(--font-poppins), system-ui, -apple-system, sans-serif;
 }
 
 /* Custom animations */
@@ -39,21 +41,32 @@ body {
 .shine-effect {
   background: linear-gradient(90deg, 
     rgb(202, 138, 4) 0%, 
-    rgb(250, 204, 21) 25%, 
-    rgb(255, 255, 255) 50%, 
-    rgb(250, 204, 21) 75%, 
+    rgb(250, 204, 21) 35%, 
+    rgb(255, 255, 255) 47%, 
+    rgb(255, 255, 255) 53%, 
+    rgb(250, 204, 21) 65%, 
     rgb(202, 138, 4) 100%);
   background-size: 200% 100%;
-  animation: shine 3s infinite;
+  animation: shine 6s infinite;
 }
 
 .silver-effect {
   background: linear-gradient(90deg, 
     rgb(107, 114, 128) 0%, 
-    rgb(156, 163, 175) 25%, 
-    rgb(255, 255, 255) 50%, 
-    rgb(156, 163, 175) 75%, 
+    rgb(156, 163, 175) 35%, 
+    rgb(255, 255, 255) 47%, 
+    rgb(255, 255, 255) 53%, 
+    rgb(156, 163, 175) 65%, 
     rgb(107, 114, 128) 100%);
   background-size: 200% 100%;
-  animation: shine 3s infinite;
+  animation: shine 6s infinite;
+}
+
+/* Font utility classes */
+.font-inter {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+.font-poppins {
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
 }

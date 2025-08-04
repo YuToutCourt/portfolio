@@ -86,6 +86,7 @@ const translations = {
     'footer.navigation': 'Navigation',
     'footer.home': 'Accueil',
     'footer.journey': 'Parcours',
+    'footer.profiles': 'Mes Profils',
     
     // GitHub Platform
     'github.title': 'GitHub',
@@ -222,7 +223,7 @@ const translations = {
     'education.major.promotion': 'Valedictorian • 1st/21',
     'education.excellent': 'Excellent • 2nd/21',
     'education.master.description': 'Advanced training: Digital Investigation (Computer/Memory/Mobile/Networks Forensics), Security (Cryptography, IOT, Systems), Preparation Certifications (OSCP, CISSP, CISA), Audit & Penetration Testing, RedTeam, Cloud & IAM.',
-    'education.bachelor.description': 'Complete cybersecurity training: Development (C, Python, x86 Assembly), Networks (CCNA), Systems (Linux, Git), Security (PreparationCEH, Cryptography, Pentesting, Hardening), IT Project Management.',
+    'education.bachelor.description': 'Complete cybersecurity training: Development (C, Python, x86 Assembly), Networks (CCNA), Systems (Linux, Git), Security (Preparation CEH, Cryptography, Pentesting, Hardening), IT Project Management.',
     'education.dut.description': 'Complete technical training: Algorithms and Programming, Systems and Networks Architecture, Software Engineering, Mathematics, Economics-Management, Languages-Communication.',
     'education.master.specialnote': 'Professional Certification Expert in Systems-Networks Architectures and Computer Security (RNCP36296)',
     'education.bachelor.specialnote': 'Professional Certification Systems, Networks and Security Project Manager (RNCP39115)',
@@ -256,6 +257,7 @@ const translations = {
     'footer.navigation': 'Navigation',
     'footer.home': 'Home',
     'footer.journey': 'Journey',
+    'footer.profiles': 'My Profiles',
     
     // GitHub Platform
     'github.title': 'GitHub',

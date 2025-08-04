@@ -9,7 +9,7 @@ export default function Home() {
       <main className="overflow-x-hidden">
         <Hero />
         <MainContent />
-        <div className="pb-20">
+        <div id="platforms" className="pb-20">
           <LazyPlatformsShowcase />
         </div>
       </main>

@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useLanguage } from '@/app/contexts/LanguageContext';
 import Image from 'next/image';
@@ -28,6 +27,7 @@ const Footer = () => {
   const quickLinks = [
     { name: t('footer.home'), href: "#home" },
     { name: t('footer.journey'), href: "#about" },
+    { name: t('footer.profiles'), href: "#platforms" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -51,17 +51,19 @@ const Footer = () => {
               <h4 className="text-xl font-bold text-foreground mb-6">Navigation</h4>
               <div className="space-y-3">
                 {quickLinks.map((link, index) => (
-                  <motion.div key={index} whileHover={{ x: 5 }}>
-                    <Button
-                      onClick={() => scrollToSection(link.href)}
-                      variant="ghost"
-                      size="sm"
-                      className="justify-start p-0 h-auto text-muted-foreground hover:text-foreground"
+                  <div key={index}>
+                    <a
+                      href={link.href}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(link.href);
+                      }}
+                      className="flex items-center text-muted-foreground hover:text-primary transition-colors duration-200 cursor-pointer group"
                     >
-                      <span className="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                      <span className="w-2 h-2 bg-primary rounded-full mr-3 group-hover:bg-primary/80 transition-colors"></span>
                       {link.name}
-                    </Button>
-                  </motion.div>
+                    </a>
+                  </div>
                 ))}
               </div>
             </motion.div>
@@ -79,36 +81,27 @@ const Footer = () => {
                 <h5 className="text-lg font-semibold text-foreground mb-4">{t('footer.follow')}</h5>
                 <div className="flex space-x-3">
                   {socialLinks.map((social, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Button
-                        variant="outline"
-                        size="icon"
-                        asChild
+                    <div key={index}>
+                      <a
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.name}
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-md border border-input bg-background hover:bg-accent hover:text-accent-foreground hover:border-primary/40 transition-all duration-200 cursor-pointer"
                       >
-                        <a
-                          href={social.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={social.name}
-                        >
-                          {social.isComponent ? (
-                            <social.icon className="h-4 w-4" />
-                          ) : (
-                            <Image 
-                              src={social.icon as string} 
-                              alt={social.name} 
-                              width={16} 
-                              height={16} 
-                              className="h-4 w-4 object-contain"
-                            />
-                          )}
-                        </a>
-                      </Button>
-                    </motion.div>
+                        {social.isComponent ? (
+                          <social.icon className="h-4 w-4" />
+                        ) : (
+                          <Image 
+                            src={social.icon as string} 
+                            alt={social.name} 
+                            width={16} 
+                            height={16} 
+                            className="h-4 w-4 object-contain"
+                          />
+                        )}
+                      </a>
+                    </div>
                   ))}
                 </div>
               </div>
