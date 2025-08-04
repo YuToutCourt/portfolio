@@ -78,64 +78,74 @@ const Hero = () => {
                 YùToutCourt
               </h1>
               
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
-                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-blue-100 to-cyan-100 border-blue-300 hover:shadow-md transition-all text-blue-800 font-medium">
+                            <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-blue-100 to-yellow-100 border-blue-300 hover:shadow-md transition-all text-blue-800 font-medium">
                   <Image 
                     src="/py_logo.svg.png" 
                     alt="Python" 
                     width={12} 
                     height={12} 
-                    className="w-3 h-3"
+                    className="w-4 h-4"
                   />
                   Python
                 </Badge>
-                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-orange-100 to-red-100 border-orange-300 hover:shadow-md transition-all text-orange-800 font-medium">
+                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-red-100 to-orange-100 border-red-300 hover:shadow-md transition-all text-red-800 font-medium">
                   <Image 
                     src="/java.png" 
                     alt="Java" 
                     width={12} 
                     height={12} 
-                    className="w-3 h-3"
+                    className="w-4 h-4"
                   />
                   Java
                 </Badge>
-                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-yellow-100 to-orange-100 border-yellow-300 hover:shadow-md transition-all text-yellow-800 font-medium">
+                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-yellow-100 to-yellow-200 border-yellow-400 hover:shadow-md transition-all text-yellow-800 font-medium">
                   <Image 
                     src="/js.png" 
                     alt="JavaScript" 
                     width={12} 
                     height={12} 
-                    className="w-3 h-3"
+                    className="w-4 h-4"
                   />
                   JavaScript
                 </Badge>   
-                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 border-blue-300 hover:shadow-md transition-all text-blue-800 font-medium">
+                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-sky-100 to-blue-100 border-sky-300 hover:shadow-md transition-all text-sky-800 font-medium">
                   <Image 
                     src="/docker.webp" 
                     alt="Docker" 
                     width={12} 
                     height={12} 
-                    className="w-3 h-3"
+                    className="w-4 h-4"
                   />
                   Docker
                 </Badge>             
-                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-orange-100 to-yellow-100 border-orange-300 hover:shadow-md transition-all text-orange-800 font-medium">
+                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-orange-100 to-amber-100 border-orange-300 hover:shadow-md transition-all text-orange-800 font-medium">
                   <Image 
                     src="/burp_logo.png" 
                     alt="Burp Suite" 
                     width={12} 
                     height={12} 
-                    className="w-3 h-3"
+                    className="w-4 h-4"
                   />
                   Burp Suite
                 </Badge>
-                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-green-100 to-teal-100 border-green-300 hover:shadow-md transition-all text-green-800 font-medium">
+                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-slate-100 to-red-100 border-slate-400 hover:shadow-md transition-all text-slate-800 font-medium">
+                  <Image 
+                    src="/exegol.png" 
+                    alt="Exegol" 
+                    width={12} 
+                    height={12} 
+                    className="w-4 h-4"
+                  />
+                  Exegol
+                </Badge>
+                <Badge variant="outline" className="text-sm flex items-center gap-2 bg-gradient-to-r from-green-100 to-emerald-100 border-green-400 hover:shadow-md transition-all text-green-800 font-medium">
                   <Image 
                     src="/ghidra_logo.png" 
                     alt="Ghidra" 
                     width={12} 
                     height={12} 
-                    className="w-3 h-3"
+                    className="w-4 h-4"
                   />
                   Ghidra
                 </Badge>

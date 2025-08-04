@@ -146,26 +146,27 @@ const PlatformsShowcase = () => {
 
 
   return (
-    <div className="space-y-12">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="text-center"
-      >
-        <h3 className="text-3xl font-bold text-foreground mb-4">
-          {t('platforms.title')}
-        </h3>
-        <Separator className="w-16 mx-auto mb-6 bg-primary h-1" />
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          {t('platforms.description')}
-        </p>
-      </motion.div>
+    <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
+      <div className="space-y-12">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center"
+        >
+          <h3 className="text-3xl font-bold text-foreground mb-4">
+            {t('platforms.title')}
+          </h3>
+          <Separator className="w-16 mx-auto mb-6 bg-primary h-1" />
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t('platforms.description')}
+          </p>
+        </motion.div>
 
-      {/* Platforms Grid - GitHub, RootMe and HackTheBox */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+        {/* Platforms Grid - GitHub, RootMe and HackTheBox */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         
         {/* GitHub Section */}
         <motion.div
@@ -735,6 +736,7 @@ const PlatformsShowcase = () => {
           </Card>
         </motion.div>
       </div>
+    </div>
     </div>
   );
 };
