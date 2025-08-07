@@ -30,11 +30,15 @@ export async function GET() {
     }
 
     const data = await response.json();
+
+    console.error(data);
     
     // Structure basée sur la nouvelle API de Gubarz
     const profile = data.profile || data;
 
     if (!profile) {
+      console.error(data);
+      console.error(response);
       throw new Error('No profile data returned from HTB API');
     }
 
@@ -44,19 +48,19 @@ export async function GET() {
 
     // Extraire les données selon la structure moderne
     const stats = {
-      rank: profile.rank || 'Script Kiddie',
-      points: profile.points || 0,
-      userOwns: profile.user_owns || 0,
-      rootOwns: profile.system_owns || 0,
-      respect: profile.respects || 0,
-      ranking: profile.ranking || 0,
+      rank: profile.rank || 'Hacker (default data due to API error)',
+      points: profile.points || 24,
+      userOwns: profile.user_owns || 16,
+      rootOwns: profile.system_owns || 13,
+      respect: profile.respects || 2,
+      ranking: profile.ranking || 959,
       userBloods: profile.user_bloods || 0,
       systemBloods: profile.system_bloods || 0,
       challenges: (profile.user_owns || 0) + (profile.system_owns || 0),
       isVip: profile.isVip || false,
       country: profile.country_name || 'Unknown',
       currentRankProgress: profile.current_rank_progress || 0,
-      nextRank: profile.next_rank || 'Next Rank',
+      nextRank: profile.next_rank || 'Pro Hacker',
       profileUrl: `https://app.hackthebox.com/profile/${HTB_USER_ID}`,
       lastUpdated: new Date().toISOString()
     };

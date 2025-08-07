@@ -223,7 +223,7 @@ const PlatformsShowcase = () => {
                 </div>
                 
                 {githubLoading ? (
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {[1, 2, 3].map((i) => (
                       <div key={i} className="bg-gray-800 rounded-lg p-4 animate-pulse border border-gray-700">
                         <div className="w-8 h-8 bg-gray-700 rounded mx-auto mb-3"></div>
@@ -237,7 +237,7 @@ const PlatformsShowcase = () => {
                     Erreur: {githubError}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {githubStats.map((stat, index) => (
                       <motion.div
                         key={stat.label}
@@ -250,8 +250,8 @@ const PlatformsShowcase = () => {
                         <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border border-blue-500/30">
                           <stat.icon className="h-6 w-6 text-blue-400" />
                         </div>
-                        <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                        <div className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</div>
+                        <div className="text-xl sm:text-2xl font-bold text-white mb-1">{stat.value}</div>
+                        <div className="text-xs text-gray-400 uppercase tracking-wider truncate leading-tight">{stat.label}</div>
                       </motion.div>
                     ))}
                   </div>
@@ -382,7 +382,7 @@ const PlatformsShowcase = () => {
                     {rootMeData?.error && <div className="text-xs mt-1 text-gray-500">Données de secours utilisées</div>}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {/* Place Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -394,8 +394,8 @@ const PlatformsShowcase = () => {
                       <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border border-green-500/30">
                         <Trophy className="h-6 w-6 text-green-400" />
                       </div>
-                      <div className="text-2xl font-bold text-white mb-1">#{rootMeData?.place || '1506'}</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Place</div>
+                      <div className="text-xl sm:text-2xl font-bold text-white mb-1">#{rootMeData?.place || '1506'}</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider truncate leading-tight">Place</div>
                     </motion.div>
 
                     {/* Points Card */}
@@ -409,8 +409,8 @@ const PlatformsShowcase = () => {
                       <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border border-blue-500/30">
                         <Star className="h-6 w-6 text-blue-400" />
                       </div>
-                      <div className="text-2xl font-bold text-white mb-1">{rootMeData?.points || '4765'}</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Points</div>
+                      <div className="text-xl sm:text-2xl font-bold text-white mb-1">{rootMeData?.points || '4765'}</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider truncate leading-tight">Points</div>
                     </motion.div>
 
                     {/* Challenges Card */}
@@ -424,8 +424,8 @@ const PlatformsShowcase = () => {
                       <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border border-yellow-500/30">
                         <Target className="h-6 w-6 text-yellow-400" />
                       </div>
-                      <div className="text-2xl font-bold text-white mb-1">{rootMeData?.challenges || '219'}</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Challenges</div>
+                      <div className="text-xl sm:text-2xl font-bold text-white mb-1">{rootMeData?.challenges || '219'}</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider truncate leading-tight">Challenges</div>
                     </motion.div>
 
                   </div>
@@ -445,7 +445,7 @@ const PlatformsShowcase = () => {
                         <Target className="h-4 w-4 text-red-400" />
                       </div>
                       <div>
-                        <div className="text-white font-semibold">{rootMeData.challenges}/{rootMeData.totalChallenges}</div>
+                      <div className="text-white font-semibold">{rootMeData.challenges}/{rootMeData.totalChallenges}</div>
                         <div className="text-xs text-gray-400">challenges résolus</div>
                       </div>
                     </div>
@@ -490,11 +490,11 @@ const PlatformsShowcase = () => {
                               unoptimized
                             />
                           </div>
-                          <div className="flex-1">
-                            <div className="font-medium text-white text-sm group-hover:text-red-300 transition-colors">
+                          <div className="flex-1 min-w-0">
+                            <div className="font-medium text-white text-sm group-hover:text-red-300 transition-colors truncate">
                               {activity.name}
                             </div>
-                            <div className="text-xs text-gray-400 mt-1 flex items-center">
+                            <div className="text-xs text-gray-400 mt-1 flex items-center flex-wrap">
                               <span className="text-red-400 font-medium mr-2 group-hover:text-red-300 transition-colors">
                                 {activity.category}
                               </span>
@@ -578,7 +578,7 @@ const PlatformsShowcase = () => {
                 </div>
 
                 {hackTheBoxLoading ? (
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {[1, 2, 3].map((i) => (
                       <div key={i} className="bg-gray-800 rounded-lg p-4 animate-pulse border border-gray-700">
                         <div className="w-8 h-8 bg-gray-700 rounded mx-auto mb-3"></div>
@@ -593,7 +593,7 @@ const PlatformsShowcase = () => {
                     {hackTheBoxData?.error && <div className="text-xs mt-1 text-gray-500">Données de secours utilisées</div>}
                   </div>
                 ) : (
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     {/* Global Ranking Card */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -605,8 +605,8 @@ const PlatformsShowcase = () => {
                       <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border border-green-500/30">
                         <Trophy className="h-6 w-6 text-green-400" />
                       </div>
-                      <div className="text-2xl font-bold text-white mb-1">#{hackTheBoxData?.ranking.toLocaleString() || '955'}</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Global Ranking</div>
+                      <div className="text-xl sm:text-2xl font-bold text-white mb-1">#{hackTheBoxData?.ranking.toLocaleString() || '955'}</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider truncate leading-tight">Global Ranking</div>
                     </motion.div>
 
                     {/* Points Card */}
@@ -620,8 +620,8 @@ const PlatformsShowcase = () => {
                       <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border border-green-500/30">
                         <Star className="h-6 w-6 text-green-400" />
                       </div>
-                      <div className="text-2xl font-bold text-white mb-1">{hackTheBoxData?.points || '24'}</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Points</div>
+                      <div className="text-xl sm:text-2xl font-bold text-white mb-1">{hackTheBoxData?.points || '24'}</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider truncate leading-tight">Points</div>
                     </motion.div>
 
                     {/* Owns Combined Card */}
@@ -635,8 +635,8 @@ const PlatformsShowcase = () => {
                       <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-3 border border-green-500/30">
                         <Terminal className="h-6 w-6 text-green-400" />
                       </div>
-                      <div className="text-2xl font-bold text-white mb-1">{(hackTheBoxData?.userOwns || 0) + (hackTheBoxData?.rootOwns || 0)}</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-wider">Total Owns</div>
+                      <div className="text-xl sm:text-2xl font-bold text-white mb-1">{(hackTheBoxData?.userOwns || 0) + (hackTheBoxData?.rootOwns || 0)}</div>
+                      <div className="text-xs text-gray-400 uppercase tracking-wider truncate leading-tight">Total Owns</div>
                     </motion.div>
                   </div>
                 )}
