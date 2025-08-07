@@ -26,19 +26,26 @@ export async function GET() {
     });
 
     if (!response.ok) {
+      console.error(response);
+      console.error(response.status);
+      console.error(response.statusText);
+      console.error(response.body);
+      console.error(response.headers);
+      console.error(response.url);
+      console.error(response.ok);
+      console.error(response.json());
+      console.error(response.text());
       throw new Error(`HTB API responded with status: ${response.status} - ${response.statusText}`);
     }
 
     const data = await response.json();
 
-    console.error(data);
     
     // Structure basée sur la nouvelle API de Gubarz
     const profile = data.profile || data;
 
     if (!profile) {
-      console.error(data);
-      console.error(response);
+
       throw new Error('No profile data returned from HTB API');
     }
 
@@ -67,20 +74,20 @@ export async function GET() {
 
     return NextResponse.json(stats);
   } catch (error) {
-    console.error('Error fetching HackTheBox data:', error);
+    console.error('Error fetching HackTheBox data:', error, process.env.HTB_API_KEY, process.env.HTB_USER_ID);
     
     // Retourner des données de fallback en cas d'erreur
     const fallbackStats = {
-      rank: 'Script Kiddie',
+      rank: 'Hacker (default data due to API error)',
       points: 24,
-      userOwns: 4,
-      rootOwns: 4,
-      respect: 3,
-      ranking: 796022,
-      userBloods: 0,
-      systemBloods: 0,
-      challenges: 8,
-      isVip: false,
+      userOwns: 16,
+      rootOwns: 13,
+      respect: 2,
+      ranking: 959,
+      userBloods: 1,
+      systemBloods: 1,
+      challenges: 29,
+      isVip: true,
       country: 'France',
       currentRankProgress: 0,
       nextRank: 'Pro Hacker',
