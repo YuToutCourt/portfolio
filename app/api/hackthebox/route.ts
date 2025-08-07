@@ -14,27 +14,43 @@ export async function GET() {
       throw new Error('HTB_USER_ID not configured');
     }
 
-    // Utiliser l'API officielle selon la documentation T-Crypt
-    // Endpoint pour obtenir les informations de profil public
-    const response = await fetch(`https://www.hackthebox.com/api/v4/user/profile/basic/${HTB_USER_ID}`, {
+    // Utiliser l'API officielle. Certains environnements (prod) exigent app.hackthebox.com et des en-têtes réalistes
+    let response = await fetch(`https://app.hackthebox.com/api/v4/user/profile/basic/${HTB_USER_ID}`, {
       headers: {
-        'Authorization': `Bearer ${HTB_API_KEY}`,
-        'Accept': 'application/json',
-        'User-Agent': 'Portfolio-App/1.0'
+        Authorization: `Bearer ${HTB_API_KEY}`,
+        Accept: 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        Referer: `https://app.hackthebox.com/profile/${HTB_USER_ID}`,
+        Origin: 'https://app.hackthebox.com'
       },
-      next: { revalidate: 300 } // Cache pendant 5 minutes
+      next: { revalidate: 300 }
     });
 
+    // Fallback: essayer autre endpoint si 404
+    if (response.status === 404) {
+      response = await fetch(`https://app.hackthebox.com/api/v4/user/profile/${HTB_USER_ID}`, {
+        headers: {
+          Authorization: `Bearer ${HTB_API_KEY}`,
+          Accept: 'application/json',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+          Referer: `https://app.hackthebox.com/profile/${HTB_USER_ID}`,
+          Origin: 'https://app.hackthebox.com'
+        },
+        next: { revalidate: 300 }
+      });
+    }
+
     if (!response.ok) {
-      console.error(response);
-      console.error(response.status);
-      console.error(response.statusText);
-      console.error(response.body);
-      console.error(response.headers);
-      console.error(response.url);
-      console.error(response.ok);
-      console.error(response.json());
-      console.error(response.text());
+      let errorBody = '';
+      try {
+        errorBody = await response.text();
+      } catch {}
+      console.error('HTB API error', {
+        status: response.status,
+        statusText: response.statusText,
+        url: response.url,
+        body: errorBody?.slice(0, 500)
+      });
       throw new Error(`HTB API responded with status: ${response.status} - ${response.statusText}`);
     }
 
@@ -74,7 +90,7 @@ export async function GET() {
 
     return NextResponse.json(stats);
   } catch (error) {
-    console.error('Error fetching HackTheBox data:', error, process.env.HTB_API_KEY, process.env.HTB_USER_ID);
+    console.error('Error fetching HackTheBox data:', (error as Error)?.message || error);
     
     // Retourner des données de fallback en cas d'erreur
     const fallbackStats = {
