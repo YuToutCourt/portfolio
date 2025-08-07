@@ -40,6 +40,8 @@ export async function GET() {
       });
     }
 
+    console.error(response);
+
     if (!response.ok) {
       let errorBody = '';
       try {
@@ -54,7 +56,18 @@ export async function GET() {
       throw new Error(`HTB API responded with status: ${response.status} - ${response.statusText}`);
     }
 
-    const data = await response.json();
+    // Parse JSON de manière robuste (certaines réponses HTML de protection peuvent passer en 200)
+    let data: any;
+    try {
+      data = await response.json();
+    } catch (parseError) {
+      let raw = '';
+      try {
+        raw = await response.text();
+      } catch {}
+      console.error('HTB API returned non-JSON response', raw?.slice(0, 500));
+      throw new Error('HTB API returned non-JSON response');
+    }
 
     
     // Structure basée sur la nouvelle API de Gubarz
