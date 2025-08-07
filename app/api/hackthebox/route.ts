@@ -63,16 +63,16 @@ export async function GET() {
     
     // Retourner des données de fallback en cas d'erreur
     const fallbackStats = {
-      rank: 'Hacker',
+      rank: 'Hacker (Fallback Data)',
       points: 24,
       userOwns: 16,
       rootOwns: 13,
       respect: 2,
       ranking: 959,
-      userBloods: 1,
-      systemBloods: 1,
+      userBloods: 0,
+      systemBloods: 0,
       challenges: 29,
-      isVip: true,
+      isVip: false,
       country: 'France',
       currentRankProgress: 0,
       nextRank: 'Pro Hacker',
