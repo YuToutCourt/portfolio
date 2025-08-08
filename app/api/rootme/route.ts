@@ -19,10 +19,10 @@ export async function GET() {
     const $ = cheerio.load(html);
 
     // Extraire les statistiques principales avec des sélecteurs plus spécifiques
-    let place = '1506';
-    let points = '4765';
-    let challenges = '219';
-    let compromissions = '5';
+    let place = 'N/A';
+    let points = 'N/A';
+    let challenges = 'N/A';
+    let compromissions = 'N/A';
 
     // Approche plus simple : chercher par texte exact dans les éléments
     $('*').each((i, element) => {
