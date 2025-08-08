@@ -4,7 +4,7 @@ export async function GET() {
   try {
     // Récupérer les variables d'environnement
     const HTB_API_KEY = process.env.HTB_API_KEY;
-    const HTB_USER_ID = process.env.HTB_USER_ID; // ID numérique selon la doc officielle
+    const HTB_USER_ID = process.env.HTB_USER_ID;
 
     if (!HTB_API_KEY) {
       throw new Error('HTB_API_KEY not configured');
@@ -14,14 +14,21 @@ export async function GET() {
       throw new Error('HTB_USER_ID not configured');
     }
 
-    // Utiliser l'API officielle selon la documentation T-Crypt
-    // Endpoint pour obtenir les informations de profil public
-    const response = await fetch(`https://www.hackthebox.com/api/v4/user/profile/basic/${HTB_USER_ID}`, {
-      headers: {
-        'Authorization': `Bearer ${HTB_API_KEY}`,
-        'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
-      },
+    // Endpoint pour récupérer le profil de base
+    const url = `https://labs.hackthebox.com/api/v4/user/profile/basic/${HTB_USER_ID}`;
+
+    // En-têtes nécessaires comme dans l'exemple Python
+    const headers = {
+      "Authorization": `Bearer ${HTB_API_KEY}`,
+      "Accept": "application/json, text/plain, */*",
+      "Origin": "https://app.hackthebox.com",
+      "Referer": "https://app.hackthebox.com/",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36 OPR/120.0.0.0",
+      "Accept-Language": "fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7",
+    };
+
+    const response = await fetch(url, {
+      headers,
       next: { revalidate: 300 } // Cache pendant 5 minutes
     });
 
@@ -30,12 +37,9 @@ export async function GET() {
     }
 
     const data = await response.json();
-
-    
     const profile = data.profile || data;
 
     if (!profile) {
-
       throw new Error('No profile data returned from HTB API');
     }
 
